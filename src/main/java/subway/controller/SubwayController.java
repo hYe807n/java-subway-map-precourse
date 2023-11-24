@@ -43,10 +43,17 @@ public class SubwayController {
         if (answer.equals(LineForm.CHOOSE_ADD.getMessage())) {
             addLine();
         }
+        if (answer.equals(LineForm.CHOOSE_DELETE.getMessage())) {
+
+        }
     }
 
+
     private void addLine() {
-        LineRepository.addLine(new Line(InputView.readAddLine()));
+        Line line = new Line(InputView.readAddLine());
+        line.addStations(InputView.readFirst());
+        line.addStations(InputView.readLast());
+        LineRepository.addLine(line);
         OutputView.printStationAddSucess();
     }
 

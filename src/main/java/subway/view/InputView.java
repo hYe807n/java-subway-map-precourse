@@ -25,4 +25,14 @@ public class InputView {
         OutputView.printLineAdd();
         return scanner.nextLine().trim();
     }
+
+    public static String readFirst() {
+        OutputView.printFirst();
+        return scanner.nextLine().trim();
+    }
+
+    public static String readLast() {
+        OutputView.printLast();
+        return scanner.nextLine().trim();
+    }
 }

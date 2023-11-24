@@ -50,4 +50,12 @@ public class OutputView {
     public static void printLineAdd() {
         System.out.println(LineForm.LINE_ADD.getMessage());
     }
+
+    public static void printFirst() {
+        System.out.println(LineForm.LINE_FIRST.getMessage());
+    }
+
+    public static void printLast() {
+        System.out.println(LineForm.LINE_LAST.getMessage());
+    }
 }
