@@ -46,10 +46,16 @@ public class SubwayController {
         String answer = InputView.readSectionFeature();
         if (answer.equals(SectionForm.CHOOSE_ADD.getMessage())) {
             addSection();
+            return;
         }
         if (answer.equals(SectionForm.CHOOSE_DELETE.getMessage())) {
             deleteSection();
+            return;
         }
+        if (answer.equals(SectionForm.EXIT.getMessage())) {
+            return;
+        }
+        throw new IllegalArgumentException("1, 2, B 중에 입력해주세요.");
     }
 
     private void deleteSection() {
@@ -85,7 +91,6 @@ public class SubwayController {
             return;
         }
         if (answer.equals(LineForm.EXIT.getMessage())) {
-            manageLine();
             return;
         }
         throw new IllegalArgumentException("1, 2, 3, B 중에 입력해주세요.");
@@ -120,7 +125,6 @@ public class SubwayController {
             return;
         }
         if (answer.equals(StationForm.EXIT.getMessage())) {
-            manageStation();
             return;
         }
         throw new IllegalArgumentException("1, 2, 3, B 중에 입력해주세요.");

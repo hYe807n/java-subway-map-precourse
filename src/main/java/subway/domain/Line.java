@@ -29,6 +29,9 @@ public class Line {
     }
 
     public void deleteSection(Station station) {
+        if (stations.size() >= 2) {
+            throw new IllegalArgumentException("노선에 포함된 역이 두 개 이하일 때는 역을 삭제할 수 없습니다.");
+        }
         stations.remove(station);
     }
 
