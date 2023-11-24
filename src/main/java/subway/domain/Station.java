@@ -22,5 +22,8 @@ public class Station {
         if (StationRepository.searchStation(name) != null) {
             throw new IllegalArgumentException("지하철 역 이름이 중복되었습니다.");
         }
+        if (name.length() < 2) {
+            throw new IllegalArgumentException("지하철 역 이름은 2 글자 이상이어야 합니다.");
+        }
     }
 }
