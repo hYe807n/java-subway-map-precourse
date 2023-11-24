@@ -5,15 +5,22 @@ import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
+import subway.view.InputView;
 import subway.view.OutputView;
 
 public class SubwayController {
-    private static final Scanner scanner = new Scanner(System.in);
+
     public void run() {
         initializeInform();
+        String userAnswer = "";
         do {
-            OutputView.printMain();
-        } while(!scanner.nextLine().trim().equals("Q"));
+            userAnswer = mainScreen();
+        } while(userAnswer.trim().equals("Q"));
+    }
+
+    private String mainScreen() {
+        OutputView.printMain();
+        return InputView.readUserFeature();
     }
 
     private void initializeInform() {

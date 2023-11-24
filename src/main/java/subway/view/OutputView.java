@@ -1,5 +1,6 @@
 package subway.view;
 
+import java.awt.Frame;
 import subway.enums.Form;
 
 public class OutputView {
