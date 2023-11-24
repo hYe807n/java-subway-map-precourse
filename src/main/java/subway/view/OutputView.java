@@ -67,4 +67,12 @@ public class OutputView {
     public static void printLineDeleteSuccess() {
         System.out.println(LineForm.STATION_DELETE_SUCCESS);
     }
+
+    public static void printLines() {
+        System.out.println(LineForm.LINES.getMessage());
+    }
+
+    public static void printLine(String line) {
+        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), line));
+    }
 }

@@ -46,13 +46,22 @@ public class SubwayController {
         if (answer.equals(LineForm.CHOOSE_DELETE.getMessage())) {
             deleteLine();
         }
+        if (answer.equals(LineForm.CHOOSE_VIEW.getMessage())) {
+            OutputView.printLines();
+            StationRepository.stations().forEach(line -> OutputView.printLine(line.getName()));
+            return;
+        }
+        if (answer.equals(LineForm.EXIT.getMessage())) {
+            manageLine();
+            return;
+        }
+        throw new IllegalArgumentException("1, 2, 3, B 중에 입력해주세요.");
     }
 
     private void deleteLine() {
         LineRepository.deleteLineByName(InputView.readDeleteLine());
         OutputView.printLineDeleteSuccess();
     }
-
 
     private void addLine() {
         Line line = new Line(InputView.readAddLine());

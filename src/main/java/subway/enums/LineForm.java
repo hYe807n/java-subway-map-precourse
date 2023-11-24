@@ -6,7 +6,7 @@ public enum LineForm {
     LINE_DELETE("\n## 삭제할 노선 이름을 입력하세요."),
     LINE_FIRST("\n## 등록할 노선의 상행 종점역 이름을 입력하세요."),
     LINE_LAST("\n## 등록할 노선의 하행 종점역 이름을 입력하세요."),
-    LINES("\n## 역 목록"),
+    LINES("\n## 노선 목록"),
     CHOOSE_ADD("1"),
     CHOOSE_DELETE("2"),
     CHOOSE_VIEW("3"),
