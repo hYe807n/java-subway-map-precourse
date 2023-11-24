@@ -11,5 +11,9 @@ public class Station {
         return name;
     }
 
-    // 추가 기능 구현
+    public boolean isLine() {
+        return LineRepository.lines().stream().anyMatch(
+            line -> line.stations.contains(this.name)
+        );
+    }
 }

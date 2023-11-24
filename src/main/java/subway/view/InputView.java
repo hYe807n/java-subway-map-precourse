@@ -15,4 +15,9 @@ public class InputView {
         OutputView.printStationAdd();
         return scanner.nextLine().trim();
     }
+
+    public static String readDeleteStation() {
+        OutputView.printStationDelete();
+        return scanner.nextLine().trim();
+    }
 }

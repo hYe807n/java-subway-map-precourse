@@ -17,6 +17,12 @@ public class StationRepository {
     }
 
     public static boolean deleteStation(String name) {
+        Station stationDelete = stations().stream().filter(
+            station -> Objects.equals(station.getName(), name)
+        ).findFirst().orElse(null);
+        if (stationDelete.isLine()) {
+            throw new IllegalArgumentException("등록된 역은 삭제할 수 없습니다.");
+        }
         return stations.removeIf(station -> Objects.equals(station.getName(), name));
     }
 

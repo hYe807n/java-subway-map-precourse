@@ -33,10 +33,23 @@ public class SubwayController {
         OutputView.printStationManage();
         String answer = InputView.readUserFeature();
         if (answer.equals(StationForm.CHOOSE_ADD.getMessage())) {
-            StationRepository.addStation(new Station(InputView.readAddStation()));
-            OutputView.printStationAddSucess();
+            addStation();
             return;
         }
+        if (answer.equals(StationForm.CHOOSE_DELETE.getMessage())) {
+            deleteStation();
+            return;
+        }
+    }
+
+    private void addStation() {
+        StationRepository.addStation(new Station(InputView.readAddStation()));
+        OutputView.printStationAddSucess();
+    }
+
+    private void deleteStation() {
+        StationRepository.deleteStation(InputView.readDeleteStation());
+        OutputView.printStationDeleteSuccess();
     }
 
     private void initializeInform() {
