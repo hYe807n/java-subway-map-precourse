@@ -28,8 +28,8 @@ public class Line {
         if (LineRepository.searchLine(name) != null) {
             throw new IllegalArgumentException("지하철 노선 이름이 중복되었습니다.");
         }
-//        if (name.length() < 2) {
-//            throw new IllegalArgumentException("지하철 역 이름은 2 글자 이상이어야 합니다.");
-//        }
+        if (name.length() < 2) {
+            throw new IllegalArgumentException("지하철 노선 이름은 2 글자 이상이어야 합니다.");
+        }
     }
 }
