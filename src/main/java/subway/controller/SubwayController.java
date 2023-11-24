@@ -66,10 +66,10 @@ public class SubwayController {
     }
 
     private void addSection() {
-        Line line = LineRepository.searchLine(InputView.readAddSectionLine());
-        Station station = StationRepository.searchStation(InputView.readAddSectionStation());
+        String line = InputView.readAddSectionLine();
+        String station = InputView.readAddSectionStation();
         String sequence = InputView.readAddSectionSequence();
-        line.addSection(sequence, station);
+        LineRepository.addSections(line, sequence, station);
         OutputView.printAddSectionSuccess();
     }
 
@@ -81,19 +81,25 @@ public class SubwayController {
         String answer = InputView.readLineFeature();
         if (answer.equals(LineForm.CHOOSE_ADD.getMessage())) {
             addLine();
+            return;
         }
         if (answer.equals(LineForm.CHOOSE_DELETE.getMessage())) {
             deleteLine();
+            return;
         }
         if (answer.equals(LineForm.CHOOSE_VIEW.getMessage())) {
-            OutputView.printLines();
-            StationRepository.stations().forEach(line -> OutputView.printLine(line.getName()));
+            viewLines();
             return;
         }
         if (answer.equals(LineForm.EXIT.getMessage())) {
             return;
         }
         throw new IllegalArgumentException("1, 2, 3, B 중에 입력해주세요.");
+    }
+
+    private void viewLines() {
+        OutputView.printLines();
+        StationRepository.stations().forEach(line -> OutputView.printLine(line.getName()));
     }
 
     private void deleteLine() {
@@ -166,9 +172,12 @@ public class SubwayController {
         LineRepository.searchLine("2호선").addStations("교대역");
         LineRepository.searchLine("2호선").addStations("강남역");
         LineRepository.searchLine("2호선").addStations("역삼역");
+        LineRepository.searchLine("3호선").addStations("교대역");
         LineRepository.searchLine("3호선").addStations("남부터미널역");
         LineRepository.searchLine("3호선").addStations("양재역");
         LineRepository.searchLine("3호선").addStations("매봉역");
+        LineRepository.searchLine("신분당선").addStations("강남역");
+        LineRepository.searchLine("신분당선").addStations("양재역");
         LineRepository.searchLine("신분당선").addStations("양재시민의숲역");
     }
 }

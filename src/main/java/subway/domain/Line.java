@@ -21,11 +21,10 @@ public class Line {
     }
 
     public void addStations(String station) {
+        if (StationRepository.searchStation(station) == null) {
+            StationRepository.addStation(new Station(station));
+        }
         stations.add(StationRepository.searchStation(station));
-    }
-
-    public void addSection(String index, Station station) {
-        stations.add(Integer.parseInt(index) - 1, station);
     }
 
     public void deleteSection(Station station) {

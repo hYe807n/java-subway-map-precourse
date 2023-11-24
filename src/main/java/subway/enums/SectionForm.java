@@ -1,9 +1,9 @@
 package subway.enums;
 
 public enum SectionForm {
-    MAIN_SECTION_MESSAGE("\n## 구간 관리 화면\n1.구간 등록\n2. 구간 삭제\nB. 돌아가기"),
+    MAIN_SECTION_MESSAGE("\n## 구간 관리 화면\n1. 구간 등록\n2. 구간 삭제\nB. 돌아가기"),
     SECTION_LINE("\n## 노선을 입력하세요."),
-    SECTION_STATION("\n## 역 이름을 입력하세요."),
+    SECTION_STATION("\n## 역이름을 입력하세요."),
     SECTION_SEQUENCE("\n## 순서를 입력하세요."),
 
     DELETE_LINE("\n## 삭제할 구간의 노선을 입력하세요."),
