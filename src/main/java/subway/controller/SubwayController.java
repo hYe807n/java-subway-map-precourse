@@ -1,10 +1,11 @@
 package subway.controller;
 
-import java.util.Scanner;
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
+import subway.enums.MainForm;
+import subway.enums.StationForm;
 import subway.view.InputView;
 import subway.view.OutputView;
 
@@ -20,7 +21,22 @@ public class SubwayController {
 
     private String mainScreen() {
         OutputView.printMain();
-        return InputView.readUserFeature();
+        String answer = InputView.readUserFeature();
+        if (answer.equals(MainForm.CHOOSE_STATION.getMessage())) {
+            manageStation();
+            return answer;
+        }
+        return answer;
+    }
+
+    private void manageStation() {
+        OutputView.printStationManage();
+        String answer = InputView.readUserFeature();
+        if (answer.equals(StationForm.CHOOSE_ADD.getMessage())) {
+            StationRepository.addStation(new Station(InputView.readAddStation()));
+            OutputView.printStationAddSucess();
+            return;
+        }
     }
 
     private void initializeInform() {
