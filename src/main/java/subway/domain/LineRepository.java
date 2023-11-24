@@ -21,8 +21,8 @@ public class LineRepository {
     }
 
     public static Line searchLine(String lineName) {
-        return (Line) lines.stream().filter(
+        return lines.stream().filter(
             line -> line.getName().equals(lineName)
-        );
+        ).findFirst().orElse(null);
     }
 }

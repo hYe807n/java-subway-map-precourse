@@ -21,8 +21,8 @@ public class StationRepository {
     }
 
     public static Station searchStation(String stationName) {
-        return (Station) stations.stream().filter(
+        return stations.stream().filter(
             station -> station.getName().equals(stationName)
-        );
+        ).findFirst().orElse(null);
     }
 }

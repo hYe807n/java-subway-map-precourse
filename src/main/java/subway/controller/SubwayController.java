@@ -1,14 +1,19 @@
 package subway.controller;
 
+import java.util.Scanner;
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
+import subway.view.OutputView;
 
 public class SubwayController {
-
+    private static final Scanner scanner = new Scanner(System.in);
     public void run() {
         initializeInform();
+        do {
+            OutputView.printMain();
+        } while(!scanner.nextLine().trim().equals("Q"));
     }
 
     private void initializeInform() {
