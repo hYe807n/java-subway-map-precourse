@@ -75,4 +75,10 @@ public class OutputView {
     public static void printLine(String line) {
         System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), line));
     }
+
+    public static void printAllLines(Line line) {
+        printLine(line.getName());
+        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), "---"));
+        line.getStations().forEach(station -> printStation(station.getName()));
+    }
 }

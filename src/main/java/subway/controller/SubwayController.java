@@ -1,6 +1,5 @@
 package subway.controller;
 
-import java.util.IllformedLocaleException;
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
@@ -34,7 +33,14 @@ public class SubwayController {
         if (answer.equals(MainForm.CHOOSE_LINE.getMessage())) {
             manageLine();
         }
+        if (answer.equals(MainForm.CHOOSE_PRINT_SECTIONS.getMessage())) {
+            printAllLines();
+        }
         return answer;
+    }
+
+    private void printAllLines() {
+        LineRepository.lines().forEach(OutputView::printAllLines);
     }
 
     private void manageLine() {
