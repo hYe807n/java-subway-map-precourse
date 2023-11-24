@@ -25,13 +25,15 @@ public class SubwayController {
     }
 
     private String mainScreen() {
-        OutputView.printMain();
-        String answer = InputView.readUserFeature();
+        String answer = InputView.readMainFeature();
         if (answer.equals(MainForm.CHOOSE_STATION.getMessage())) {
             manageStation();
         }
         if (answer.equals(MainForm.CHOOSE_LINE.getMessage())) {
             manageLine();
+        }
+        if (answer.equals(MainForm.CHOOSE_SECTION.getMessage())) {
+            manageSection();
         }
         if (answer.equals(MainForm.CHOOSE_PRINT_SECTIONS.getMessage())) {
             printAllLines();
@@ -39,13 +41,16 @@ public class SubwayController {
         return answer;
     }
 
+    private void manageSection() {
+
+    }
+
     private void printAllLines() {
         LineRepository.lines().forEach(OutputView::printAllLines);
     }
 
     private void manageLine() {
-        OutputView.printLineManage();
-        String answer = InputView.readUserFeature();
+        String answer = InputView.readLineFeature();
         if (answer.equals(LineForm.CHOOSE_ADD.getMessage())) {
             addLine();
         }
@@ -74,12 +79,11 @@ public class SubwayController {
         line.addStations(InputView.readFirst());
         line.addStations(InputView.readLast());
         LineRepository.addLine(line);
-        OutputView.printStationAddSucess();
+        OutputView.printLineAddSucess();
     }
 
     private void manageStation() {
-        OutputView.printStationManage();
-        String answer = InputView.readUserFeature();
+        String answer = InputView.readStationFeature();
         if (answer.equals(StationForm.CHOOSE_ADD.getMessage())) {
             addStation();
             return;

@@ -1,12 +1,27 @@
 package subway.view;
 
 import java.util.Scanner;
+import subway.enums.LineForm;
 import subway.enums.MainForm;
+import subway.enums.StationForm;
 
 public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static String readUserFeature() {
+    public static String readMainFeature() {
+        System.out.println(MainForm.MAIN_MASSAGE.getMessage());
+        System.out.println(MainForm.USER_FEATURE.getMessage());
+        return scanner.nextLine().trim();
+    }
+
+    public static String readStationFeature() {
+        System.out.println(StationForm.MAIN_STATION_MESSAGE.getMessage());
+        System.out.println(MainForm.USER_FEATURE.getMessage());
+        return scanner.nextLine().trim();
+    }
+
+    public static String readLineFeature() {
+        System.out.println(LineForm.MAIN_LINE_MESSAGE.getMessage());
         System.out.println(MainForm.USER_FEATURE.getMessage());
         return scanner.nextLine().trim();
     }

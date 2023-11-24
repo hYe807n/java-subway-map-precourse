@@ -8,14 +8,6 @@ import subway.enums.StationForm;
 
 public class OutputView {
 
-    public static void printMain() {
-        System.out.println(MainForm.MAIN_MASSAGE.getMessage());
-    }
-
-    public static void printStationManage() {
-        System.out.println(StationForm.MAIN_STATION_MESSAGE.getMessage());
-    }
-
     public static void printStationAdd() {
         System.out.println(StationForm.STATION_ADD.getMessage());
     }
@@ -44,8 +36,8 @@ public class OutputView {
         System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), station));
     }
 
-    public static void printLineManage() {
-        System.out.println(LineForm.MAIN_LINE_MESSAGE.getMessage());
+    public static void printLineAddSucess() {
+        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), LineForm.STATION_ADD_SUCCESS.getMessage()));
     }
 
     public static void printLineAdd() {
