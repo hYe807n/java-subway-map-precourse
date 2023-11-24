@@ -1,11 +1,12 @@
 package subway.domain;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Line {
     private String name;
-    private Queue<Station> stations = new LinkedList<>();
+    private List<Station> stations = new LinkedList<>();
 
     public Line(String name) {
         validate(name);
@@ -16,12 +17,16 @@ public class Line {
         return name;
     }
 
-    public Queue<Station> getStations() {
+    public List<Station> getStations() {
         return stations;
     }
 
     public void addStations(String station) {
         stations.add(StationRepository.searchStation(station));
+    }
+
+    public void addSection(String index, Station station) {
+        stations.add(Integer.parseInt(index) - 1, station);
     }
 
     private void validate(String name) {

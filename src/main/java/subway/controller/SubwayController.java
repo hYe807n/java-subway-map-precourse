@@ -6,6 +6,7 @@ import subway.domain.Station;
 import subway.domain.StationRepository;
 import subway.enums.LineForm;
 import subway.enums.MainForm;
+import subway.enums.SectionForm;
 import subway.enums.StationForm;
 import subway.view.InputView;
 import subway.view.OutputView;
@@ -42,7 +43,18 @@ public class SubwayController {
     }
 
     private void manageSection() {
+        String answer = InputView.readSectionFeature();
+        if (answer.equals(SectionForm.CHOOSE_ADD.getMessage())) {
+            addSection();
+        }
+    }
 
+    private void addSection() {
+        Line line = LineRepository.searchLine(InputView.readAddSectionLine());
+        Station station = StationRepository.searchStation(InputView.readAddSectionStation());
+        String sequence = InputView.readAddSectionSequence();
+        line.addSection(sequence, station);
+        OutputView.printAddSectionSuccess();
     }
 
     private void printAllLines() {

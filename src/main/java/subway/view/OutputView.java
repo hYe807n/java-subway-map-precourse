@@ -4,6 +4,7 @@ import java.util.StringJoiner;
 import subway.domain.Line;
 import subway.enums.LineForm;
 import subway.enums.MainForm;
+import subway.enums.SectionForm;
 import subway.enums.StationForm;
 
 public class OutputView {
@@ -72,5 +73,21 @@ public class OutputView {
         printLine(line.getName());
         System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), "---"));
         line.getStations().forEach(station -> printStation(station.getName()));
+    }
+
+    public static void printAddSectionLine() {
+        System.out.println(SectionForm.SECTION_LINE.getMessage());
+    }
+
+    public static void printAddSectionStation() {
+        System.out.println(SectionForm.SECTION_STATION.getMessage());
+    }
+
+    public static void printAddSectionSequence() {
+        System.out.println(SectionForm.SECTION_SEQUENCE.getMessage());
+    }
+
+    public static void printAddSectionSuccess() {
+        System.out.println(SectionForm.STATION_ADD_SUCCESS.getMessage());
     }
 }
