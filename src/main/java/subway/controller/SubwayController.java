@@ -99,7 +99,7 @@ public class SubwayController {
 
     private void viewLines() {
         OutputView.printLines();
-        StationRepository.stations().forEach(line -> OutputView.printLine(line.getName()));
+        LineRepository.lines().forEach(line -> OutputView.printLine(line.getName()));
     }
 
     private void deleteLine() {
