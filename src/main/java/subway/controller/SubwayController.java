@@ -19,10 +19,37 @@ public class SubwayController {
         do {
             try {
                 userAnswer = mainScreen();
+                checkValidMainAnswer(userAnswer);
             } catch (IllegalArgumentException exception) {
                 OutputView.printError(exception.getMessage());
             }
         } while(!userAnswer.trim().equals("Q"));
+    }
+
+    private void checkValidMainAnswer(String answer) {
+        if (!(answer.equals(MainForm.CHOOSE_STATION.getMessage()) ||
+            answer.equals(MainForm.CHOOSE_LINE.getMessage()) ||
+            answer.equals(MainForm.CHOOSE_SECTION.getMessage()) ||
+            answer.equals(MainForm.EXIT.getMessage()))) {
+            throw new IllegalArgumentException(MainForm.ERROR_CHOOSE.getMessage());
+        }
+    }
+
+    private void checkValidSectionAnswer(String answer) {
+        if (!(answer.equals(MainForm.CHOOSE_STATION.getMessage()) ||
+            answer.equals(MainForm.CHOOSE_LINE.getMessage()) ||
+            answer.equals(MainForm.EXIT.getMessage()))) {
+            throw new IllegalArgumentException(MainForm.ERROR_CHOOSE.getMessage());
+        }
+    }
+
+    private void checkValidStationLineAnswer(String answer) {
+        if (!(answer.equals(StationForm.CHOOSE_ADD.getMessage()) ||
+            answer.equals(StationForm.CHOOSE_DELETE.getMessage()) ||
+            answer.equals(StationForm.CHOOSE_VIEW.getMessage()) ||
+            answer.equals(StationForm.EXIT.getMessage()))) {
+            throw new IllegalArgumentException(MainForm.ERROR_CHOOSE.getMessage());
+        }
     }
 
     private String mainScreen() {
@@ -46,16 +73,11 @@ public class SubwayController {
         String answer = InputView.readSectionFeature();
         if (answer.equals(SectionForm.CHOOSE_ADD.getMessage())) {
             addSection();
-            return;
         }
         if (answer.equals(SectionForm.CHOOSE_DELETE.getMessage())) {
             deleteSection();
-            return;
         }
-        if (answer.equals(SectionForm.EXIT.getMessage())) {
-            return;
-        }
-        throw new IllegalArgumentException("1, 2, B 중에 입력해주세요.");
+        checkValidSectionAnswer(answer);
     }
 
     private void deleteSection() {
@@ -81,20 +103,14 @@ public class SubwayController {
         String answer = InputView.readLineFeature();
         if (answer.equals(LineForm.CHOOSE_ADD.getMessage())) {
             addLine();
-            return;
         }
         if (answer.equals(LineForm.CHOOSE_DELETE.getMessage())) {
             deleteLine();
-            return;
         }
         if (answer.equals(LineForm.CHOOSE_VIEW.getMessage())) {
             viewLines();
-            return;
         }
-        if (answer.equals(LineForm.EXIT.getMessage())) {
-            return;
-        }
-        throw new IllegalArgumentException("1, 2, 3, B 중에 입력해주세요.");
+        checkValidStationLineAnswer(answer);
     }
 
     private void viewLines() {
@@ -119,21 +135,15 @@ public class SubwayController {
         String answer = InputView.readStationFeature();
         if (answer.equals(StationForm.CHOOSE_ADD.getMessage())) {
             addStation();
-            return;
         }
         if (answer.equals(StationForm.CHOOSE_DELETE.getMessage())) {
             deleteStation();
-            return;
         }
         if (answer.equals(StationForm.CHOOSE_VIEW.getMessage())) {
             OutputView.printStations();
             StationRepository.stations().forEach(station -> OutputView.printStation(station.getName()));
-            return;
         }
-        if (answer.equals(StationForm.EXIT.getMessage())) {
-            return;
-        }
-        throw new IllegalArgumentException("1, 2, 3, B 중에 입력해주세요.");
+        checkValidStationLineAnswer(answer);
     }
 
     private void addStation() {

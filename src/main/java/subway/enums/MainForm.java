@@ -9,7 +9,8 @@ public enum MainForm {
     CHOOSE_PRINT_SECTIONS("4"),
     EXIT("Q"),
     INFO_ERROR("\n[ERROR] "),
-    INFO_FORM("[INFO] ");
+    INFO_FORM("[INFO] "),
+    ERROR_CHOOSE("선택할 수 없는 기능입니다.");
 
     private final String message;
 
