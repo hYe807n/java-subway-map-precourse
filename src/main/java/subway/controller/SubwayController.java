@@ -44,8 +44,13 @@ public class SubwayController {
             addLine();
         }
         if (answer.equals(LineForm.CHOOSE_DELETE.getMessage())) {
-
+            deleteLine();
         }
+    }
+
+    private void deleteLine() {
+        LineRepository.deleteLineByName(InputView.readDeleteLine());
+        OutputView.printLineDeleteSuccess();
     }
 
 

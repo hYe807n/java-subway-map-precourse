@@ -35,4 +35,9 @@ public class InputView {
         OutputView.printLast();
         return scanner.nextLine().trim();
     }
+
+    public static String readDeleteLine( ){
+        OutputView.printLineDelete();
+        return scanner.nextLine().trim();
+    }
 }

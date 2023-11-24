@@ -1,6 +1,7 @@
 package subway.view;
 
 import java.util.StringJoiner;
+import subway.domain.Line;
 import subway.enums.LineForm;
 import subway.enums.MainForm;
 import subway.enums.StationForm;
@@ -57,5 +58,13 @@ public class OutputView {
 
     public static void printLast() {
         System.out.println(LineForm.LINE_LAST.getMessage());
+    }
+
+    public static void printLineDelete() {
+        System.out.println(LineForm.LINE_DELETE.getMessage());
+    }
+
+    public static void printLineDeleteSuccess() {
+        System.out.println(LineForm.STATION_DELETE_SUCCESS);
     }
 }
