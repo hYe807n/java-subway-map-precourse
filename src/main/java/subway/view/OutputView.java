@@ -1,6 +1,7 @@
 package subway.view;
 
 import java.util.StringJoiner;
+import subway.enums.LineForm;
 import subway.enums.MainForm;
 import subway.enums.StationForm;
 
@@ -40,5 +41,13 @@ public class OutputView {
 
     public static void printStation(String station) {
         System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), station));
+    }
+
+    public static void printLineManage() {
+        System.out.println(LineForm.MAIN_LINE_MESSAGE.getMessage());
+    }
+
+    public static void printLineAdd() {
+        System.out.println(LineForm.LINE_ADD.getMessage());
     }
 }

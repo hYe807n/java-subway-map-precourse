@@ -20,4 +20,9 @@ public class InputView {
         OutputView.printStationDelete();
         return scanner.nextLine().trim();
     }
+
+    public static String readAddLine() {
+        OutputView.printLineAdd();
+        return scanner.nextLine().trim();
+    }
 }

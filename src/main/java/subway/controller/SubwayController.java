@@ -5,6 +5,7 @@ import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
+import subway.enums.LineForm;
 import subway.enums.MainForm;
 import subway.enums.StationForm;
 import subway.view.InputView;
@@ -29,9 +30,24 @@ public class SubwayController {
         String answer = InputView.readUserFeature();
         if (answer.equals(MainForm.CHOOSE_STATION.getMessage())) {
             manageStation();
-            return answer;
+        }
+        if (answer.equals(MainForm.CHOOSE_LINE.getMessage())) {
+            manageLine();
         }
         return answer;
+    }
+
+    private void manageLine() {
+        OutputView.printLineManage();
+        String answer = InputView.readUserFeature();
+        if (answer.equals(LineForm.CHOOSE_ADD.getMessage())) {
+            addLine();
+        }
+    }
+
+    private void addLine() {
+        LineRepository.addLine(new Line(InputView.readAddLine()));
+        OutputView.printStationAddSucess();
     }
 
     private void manageStation() {
