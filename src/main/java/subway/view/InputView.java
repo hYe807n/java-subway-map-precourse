@@ -77,4 +77,14 @@ public class InputView {
         OutputView.printAddSectionSequence();
         return scanner.nextLine().trim();
     }
+
+    public static String readDeleteSectionLine( ){
+        OutputView.printDeleteSectionLine();
+        return scanner.nextLine().trim();
+    }
+
+    public static String readDeleteSectionStation( ){
+        OutputView.printDeleteSectionStation();
+        return scanner.nextLine().trim();
+    }
 }

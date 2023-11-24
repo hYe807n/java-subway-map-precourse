@@ -2,7 +2,6 @@ package subway.domain;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class Line {
     private String name;
@@ -27,6 +26,10 @@ public class Line {
 
     public void addSection(String index, Station station) {
         stations.add(Integer.parseInt(index) - 1, station);
+    }
+
+    public void deleteSection(Station station) {
+        stations.remove(station);
     }
 
     private void validate(String name) {

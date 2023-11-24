@@ -6,8 +6,8 @@ public enum SectionForm {
     SECTION_STATION("\n## 역 이름을 입력하세요."),
     SECTION_SEQUENCE("\n## 순서를 입력하세요."),
 
-    DELETE_LINE("\n## 삭제한 구간의 노선을 입력하세요."),
-    DELETE_STATION("\n## 삭제한 구간의 역을 입력하세요."),
+    DELETE_LINE("\n## 삭제할 구간의 노선을 입력하세요."),
+    DELETE_STATION("\n## 삭제할 구간의 역을 입력하세요."),
 
     CHOOSE_ADD("1"),
     CHOOSE_DELETE("2"),

@@ -47,6 +47,16 @@ public class SubwayController {
         if (answer.equals(SectionForm.CHOOSE_ADD.getMessage())) {
             addSection();
         }
+        if (answer.equals(SectionForm.CHOOSE_DELETE.getMessage())) {
+            deleteSection();
+        }
+    }
+
+    private void deleteSection() {
+        Line line = LineRepository.searchLine(InputView.readDeleteSectionLine());
+        Station station = StationRepository.searchStation(InputView.readDeleteSectionStation());
+        line.deleteSection(station);
+        OutputView.printDeleteSectionSuccess();
     }
 
     private void addSection() {

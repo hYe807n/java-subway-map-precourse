@@ -90,4 +90,16 @@ public class OutputView {
     public static void printAddSectionSuccess() {
         System.out.println(SectionForm.STATION_ADD_SUCCESS.getMessage());
     }
+
+    public static void printDeleteSectionLine() {
+        System.out.println(SectionForm.DELETE_LINE.getMessage());
+    }
+
+    public static void printDeleteSectionStation() {
+        System.out.println(SectionForm.DELETE_STATION.getMessage());
+    }
+
+    public static void printDeleteSectionSuccess() {
+        System.out.println(SectionForm.STATION_DELETE_SUCCESS.getMessage());
+    }
 }
