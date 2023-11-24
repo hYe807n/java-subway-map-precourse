@@ -8,7 +8,8 @@ public enum MainForm {
     CHOOSE_SECTION("3"),
     CHOOSE_PRINT_SECTIONS("4"),
     EXIT("Q"),
-    INFO_FORM("[INFO] ");
+    INFO_ERROR("\n[ERROR] "),
+    INFO_FORM("\n[INFO] ");
 
     private final String message;
 

@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class Line {
     private String name;
-    Queue<Station> stations = new LinkedList<>();
+    private Queue<Station> stations = new LinkedList<>();
 
     public Line(String name) {
         this.name = name;
@@ -13,6 +13,10 @@ public class Line {
 
     public String getName() {
         return name;
+    }
+
+    public Queue<Station> getStations() {
+        return stations;
     }
 
     public void addStations(String station) {

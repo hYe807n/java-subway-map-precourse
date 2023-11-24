@@ -1,5 +1,6 @@
 package subway.domain;
 
+
 public class Station {
     private String name;
 
@@ -13,8 +14,10 @@ public class Station {
     }
 
     public boolean isLine() {
-        return LineRepository.lines().stream().anyMatch(
-            line -> line.stations.contains(this.name)
+        return LineRepository.lines().stream().map(Line::getStations).anyMatch(
+            stations -> stations.stream().anyMatch(
+                station -> station.getName().equals(name)
+            )
         );
     }
 

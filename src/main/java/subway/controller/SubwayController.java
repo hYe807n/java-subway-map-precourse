@@ -1,5 +1,6 @@
 package subway.controller;
 
+import java.util.IllformedLocaleException;
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
@@ -15,8 +16,12 @@ public class SubwayController {
         initializeInform();
         String userAnswer = "";
         do {
-            userAnswer = mainScreen();
-        } while(userAnswer.trim().equals("Q"));
+            try {
+                userAnswer = mainScreen();
+            } catch (IllegalArgumentException exception) {
+                OutputView.printError(exception.getMessage());
+            }
+        } while(!userAnswer.trim().equals("Q"));
     }
 
     private String mainScreen() {
@@ -40,6 +45,16 @@ public class SubwayController {
             deleteStation();
             return;
         }
+        if (answer.equals(StationForm.CHOOSE_VIEW.getMessage())) {
+            OutputView.printStations();
+            StationRepository.stations().forEach(station -> OutputView.printStation(station.getName()));
+            return;
+        }
+        if (answer.equals(StationForm.EXIT.getMessage())) {
+            manageStation();
+            return;
+        }
+        throw new IllegalArgumentException("1, 2, 3, B 중에 입력해주세요.");
     }
 
     private void addStation() {

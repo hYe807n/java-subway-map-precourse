@@ -3,7 +3,6 @@ package subway.view;
 import java.util.StringJoiner;
 import subway.enums.MainForm;
 import subway.enums.StationForm;
-import sun.dc.pr.PRError;
 
 public class OutputView {
 
@@ -29,5 +28,17 @@ public class OutputView {
 
     public static void printStationDeleteSuccess() {
         System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), StationForm.STATION_DELETE_SUCCESS.getMessage()));
+    }
+
+    public static void printError(String message) {
+        System.out.println(new StringJoiner("", MainForm.INFO_ERROR.getMessage(), message));
+    }
+
+    public static void printStations() {
+        System.out.println(StationForm.STATIONS.getMessage());
+    }
+
+    public static void printStation(String station) {
+        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), station));
     }
 }
