@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Line {
+
+    private static final int MINIMUM_LENGTH = 2;
+
     private String name;
     private List<Station> stations = new LinkedList<>();
 
@@ -28,7 +31,7 @@ public class Line {
     }
 
     public void deleteSection(Station station) {
-        if (stations.size() <= 2) {
+        if (stations.size() <= MINIMUM_LENGTH) {
             throw new IllegalArgumentException("노선에 포함된 역이 두 개 이하일 때는 역을 삭제할 수 없습니다.");
         }
         stations.remove(station);
@@ -38,7 +41,7 @@ public class Line {
         if (LineRepository.searchLine(name) != null) {
             throw new IllegalArgumentException("지하철 노선 이름이 중복되었습니다.");
         }
-        if (name.length() < 2) {
+        if (name.length() < MINIMUM_LENGTH) {
             throw new IllegalArgumentException("지하철 노선 이름은 2 글자 이상이어야 합니다.");
         }
     }

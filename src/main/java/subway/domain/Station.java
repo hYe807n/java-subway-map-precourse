@@ -2,6 +2,8 @@ package subway.domain;
 
 
 public class Station {
+
+    private static final int MINIMUM_LENGTH = 2;
     private String name;
 
     public Station(String name) {
@@ -25,7 +27,7 @@ public class Station {
         if (StationRepository.searchStation(name) != null) {
             throw new IllegalArgumentException("지하철 역 이름이 중복되었습니다.");
         }
-        if (name.length() < 2) {
+        if (name.length() < MINIMUM_LENGTH) {
             throw new IllegalArgumentException("지하철 역 이름은 2 글자 이상이어야 합니다.");
         }
     }
