@@ -15,15 +15,22 @@ public class SubwayController {
 
     public void run() {
         initializeInform();
-        String userAnswer = "";
+        String userAnswer;
         do {
-            try {
-                userAnswer = mainScreen();
-                checkValidMainAnswer(userAnswer);
-            } catch (IllegalArgumentException exception) {
-                OutputView.printError(exception.getMessage());
-            }
-        } while(!userAnswer.trim().equals("Q"));
+            userAnswer = iterateMain();
+        } while (!userAnswer.trim().equals("Q"));
+    }
+
+    private String iterateMain() {
+        String userAnswer="";
+        try {
+            userAnswer = mainScreen();
+            checkValidMainAnswer(userAnswer);
+            return userAnswer;
+        } catch (IllegalArgumentException exception) {
+            OutputView.printError(exception.getMessage());
+        }
+        return userAnswer;
     }
 
     private void checkValidMainAnswer(String answer) {
@@ -141,7 +148,8 @@ public class SubwayController {
         }
         if (answer.equals(StationForm.CHOOSE_VIEW.getMessage())) {
             OutputView.printStations();
-            StationRepository.stations().forEach(station -> OutputView.printStation(station.getName()));
+            StationRepository.stations()
+                .forEach(station -> OutputView.printStation(station.getName()));
         }
         checkValidStationLineAnswer(answer);
     }
