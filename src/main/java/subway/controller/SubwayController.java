@@ -22,7 +22,7 @@ public class SubwayController {
     }
 
     private String iterateMain() {
-        String userAnswer="";
+        String userAnswer = "";
         try {
             userAnswer = mainScreen();
             checkValidMainAnswer(userAnswer);
@@ -147,11 +147,15 @@ public class SubwayController {
             deleteStation();
         }
         if (answer.equals(StationForm.CHOOSE_VIEW.getMessage())) {
-            OutputView.printStations();
-            StationRepository.stations()
-                .forEach(station -> OutputView.printStation(station.getName()));
+            viewStation();
         }
         checkValidStationLineAnswer(answer);
+    }
+
+    private void viewStation() {
+        OutputView.printStations();
+        StationRepository.stations()
+            .forEach(station -> OutputView.printStation(station.getName()));
     }
 
     private void addStation() {
