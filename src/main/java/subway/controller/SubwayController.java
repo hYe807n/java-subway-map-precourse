@@ -108,6 +108,7 @@ public class SubwayController {
 
     private void manageLine() {
         String answer = InputView.readLineFeature();
+        checkValidStationLineAnswer(answer);
         if (answer.equals(LineForm.CHOOSE_ADD.getMessage())) {
             addLine();
         }
@@ -117,7 +118,6 @@ public class SubwayController {
         if (answer.equals(LineForm.CHOOSE_VIEW.getMessage())) {
             viewLines();
         }
-        checkValidStationLineAnswer(answer);
     }
 
     private void viewLines() {
@@ -140,6 +140,7 @@ public class SubwayController {
 
     private void manageStation() {
         String answer = InputView.readStationFeature();
+        checkValidStationLineAnswer(answer);
         if (answer.equals(StationForm.CHOOSE_ADD.getMessage())) {
             addStation();
         }
@@ -149,7 +150,6 @@ public class SubwayController {
         if (answer.equals(StationForm.CHOOSE_VIEW.getMessage())) {
             viewStation();
         }
-        checkValidStationLineAnswer(answer);
     }
 
     private void viewStation() {
