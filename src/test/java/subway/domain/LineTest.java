@@ -20,9 +20,9 @@ class LineTest {
     @DisplayName("노선 이름 중복 시 예외 처리")
     @Test
     void addLineByDuplicateName() {
-        LineRepository.addLine(new Line("2호선"));
+        LineRepository.addLine(new Line("5호선"));
         org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () ->
-            LineRepository.addLine(new Line("2호선")));
+            LineRepository.addLine(new Line("5호선")));
     }
 
     @DisplayName("노선 이름 2글자 이상이 아니라면 예외 처리")
@@ -35,20 +35,20 @@ class LineTest {
     @DisplayName("노선에 포함된 역이 2 개 이하일 때, 구간 삭제 시 예외 처리")
     @Test
     void exceptDeleteSectionBySize() {
-        Line line = new Line("2호선");
-        line.addStations("잠실역");
+        Line line = new Line("8호선");
+        line.addStations("교대역");
         Assertions.assertThatIllegalArgumentException()
-            .isThrownBy(() -> line.deleteSection(StationRepository.searchStation("잠실역")));
+            .isThrownBy(() -> line.deleteSection(StationRepository.searchStation("교대역")));
     }
 
     @DisplayName("노선에 포함된 구간 삭제")
     @Test
     void deleteSection() {
-        Line line = new Line("2호선");
-        line.addStations("잠실역");
-        line.addStations("강남역");
-        line.addStations("교대역");
-        line.deleteSection(StationRepository.searchStation("잠실역"));
-        assertThat(line.getStations().stream().map(Station::getName)).containsAll(Arrays.asList("강남역", "교대역"));
+        Line line = new Line("1호선");
+        line.addStations("신림역");
+        line.addStations("왕십리역");
+        line.addStations("건대역");
+        line.deleteSection(StationRepository.searchStation("건대역"));
+        assertThat(line.getStations().stream().map(Station::getName)).containsAll(Arrays.asList("신림역", "왕십리역"));
     }
 }
