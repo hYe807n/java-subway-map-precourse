@@ -14,4 +14,11 @@ class StationTest {
         assertThrows(IllegalArgumentException.class, () ->
             StationRepository.addStation(new Station("잠실역")));
     }
+
+    @DisplayName("역 이름 2글자 이상이 아니라면 예외 처리")
+    @Test
+    void addLineByMinimumName() {
+        assertThrows(IllegalArgumentException.class, () ->
+            StationRepository.addStation(new Station("2")));
+    }
 }
