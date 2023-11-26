@@ -1,34 +1,14 @@
 package subway.view;
 
 import java.util.Scanner;
-import subway.enums.LineForm;
 import subway.enums.MainForm;
-import subway.enums.SectionForm;
-import subway.enums.StationForm;
 
 public class InputView {
+
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static String readMainFeature() {
-        System.out.println(MainForm.MAIN_MASSAGE.getMessage());
-        System.out.println(MainForm.USER_FEATURE.getMessage());
-        return scanner.nextLine().trim();
-    }
-
-    public static String readStationFeature() {
-        System.out.println(StationForm.MAIN_STATION_MESSAGE.getMessage());
-        System.out.println(MainForm.USER_FEATURE.getMessage());
-        return scanner.nextLine().trim();
-    }
-
-    public static String readLineFeature() {
-        System.out.println(LineForm.MAIN_LINE_MESSAGE.getMessage());
-        System.out.println(MainForm.USER_FEATURE.getMessage());
-        return scanner.nextLine().trim();
-    }
-
-    public static String readSectionFeature() {
-        System.out.println(SectionForm.MAIN_SECTION_MESSAGE.getMessage());
+    public static String readFeature(String state) {
+        OutputView.printInform(state);
         System.out.println(MainForm.USER_FEATURE.getMessage());
         return scanner.nextLine().trim();
     }
@@ -58,32 +38,32 @@ public class InputView {
         return scanner.nextLine().trim();
     }
 
-    public static String readDeleteLine( ){
+    public static String readDeleteLine() {
         OutputView.printLineDelete();
         return scanner.nextLine().trim();
     }
 
-    public static String readAddSectionLine( ){
+    public static String readAddSectionLine() {
         OutputView.printAddSectionLine();
         return scanner.nextLine().trim();
     }
 
-    public static String readAddSectionStation( ){
+    public static String readAddSectionStation() {
         OutputView.printAddSectionStation();
         return scanner.nextLine().trim();
     }
 
-    public static String readAddSectionSequence( ){
+    public static String readAddSectionSequence() {
         OutputView.printAddSectionSequence();
         return scanner.nextLine().trim();
     }
 
-    public static String readDeleteSectionLine( ){
+    public static String readDeleteSectionLine() {
         OutputView.printDeleteSectionLine();
         return scanner.nextLine().trim();
     }
 
-    public static String readDeleteSectionStation( ){
+    public static String readDeleteSectionStation() {
         OutputView.printDeleteSectionStation();
         return scanner.nextLine().trim();
     }

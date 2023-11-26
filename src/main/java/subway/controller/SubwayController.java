@@ -37,6 +37,7 @@ public class SubwayController {
         if (!(answer.equals(MainForm.CHOOSE_STATION.getMessage()) ||
             answer.equals(MainForm.CHOOSE_LINE.getMessage()) ||
             answer.equals(MainForm.CHOOSE_SECTION.getMessage()) ||
+            answer.equals(MainForm.CHOOSE_PRINT_SECTIONS.getMessage()) ||
             answer.equals(MainForm.EXIT.getMessage()))) {
             throw new IllegalArgumentException(MainForm.ERROR_CHOOSE.getMessage());
         }
@@ -60,7 +61,7 @@ public class SubwayController {
     }
 
     private String mainScreen() {
-        String answer = InputView.readMainFeature();
+        String answer = InputView.readFeature(MainForm.CHOOSE_MAIN.getMessage());
         if (answer.equals(MainForm.CHOOSE_STATION.getMessage())) {
             manageStation();
         }
@@ -77,7 +78,7 @@ public class SubwayController {
     }
 
     private void manageSection() {
-        String answer = InputView.readSectionFeature();
+        String answer = InputView.readFeature(MainForm.CHOOSE_SECTION.getMessage());
         if (answer.equals(SectionForm.CHOOSE_ADD.getMessage())) {
             addSection();
         }
@@ -107,7 +108,7 @@ public class SubwayController {
     }
 
     private void manageLine() {
-        String answer = InputView.readLineFeature();
+        String answer = InputView.readFeature(MainForm.CHOOSE_LINE.getMessage());
         checkValidStationLineAnswer(answer);
         if (answer.equals(LineForm.CHOOSE_ADD.getMessage())) {
             addLine();
@@ -139,7 +140,7 @@ public class SubwayController {
     }
 
     private void manageStation() {
-        String answer = InputView.readStationFeature();
+        String answer = InputView.readFeature(MainForm.CHOOSE_STATION.getMessage());
         checkValidStationLineAnswer(answer);
         if (answer.equals(StationForm.CHOOSE_ADD.getMessage())) {
             addStation();

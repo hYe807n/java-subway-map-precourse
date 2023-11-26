@@ -18,13 +18,11 @@ public class OutputView {
     }
 
     public static void printStationAddSucess() {
-        System.out.println("");
-        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), StationForm.STATION_ADD_SUCCESS.getMessage()));
+        System.out.println(new StringJoiner("", "\n" + MainForm.INFO_FORM.getMessage(), StationForm.STATION_ADD_SUCCESS.getMessage()));
     }
 
     public static void printStationDeleteSuccess() {
-        System.out.println("");
-        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), StationForm.STATION_DELETE_SUCCESS.getMessage()));
+        System.out.println(new StringJoiner("", "\n" + MainForm.INFO_FORM.getMessage(), StationForm.STATION_DELETE_SUCCESS.getMessage()));
     }
 
     public static void printError(String message) {
@@ -40,8 +38,7 @@ public class OutputView {
     }
 
     public static void printLineAddSucess() {
-        System.out.println("");
-        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), LineForm.STATION_ADD_SUCCESS.getMessage()));
+        System.out.println(new StringJoiner("", "\n" + MainForm.INFO_FORM.getMessage(), LineForm.STATION_ADD_SUCCESS.getMessage()));
     }
 
     public static void printLineAdd() {
@@ -61,8 +58,7 @@ public class OutputView {
     }
 
     public static void printLineDeleteSuccess() {
-        System.out.println("");
-        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(),LineForm.STATION_DELETE_SUCCESS.getMessage()));
+        System.out.println(new StringJoiner("", "\n" + MainForm.INFO_FORM.getMessage(),LineForm.STATION_DELETE_SUCCESS.getMessage()));
     }
 
     public static void printLines() {
@@ -93,8 +89,7 @@ public class OutputView {
     }
 
     public static void printAddSectionSuccess() {
-        System.out.println("");
-        System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), SectionForm.STATION_ADD_SUCCESS.getMessage()));
+        System.out.println(new StringJoiner("", "\n" + MainForm.INFO_FORM.getMessage(), SectionForm.STATION_ADD_SUCCESS.getMessage()));
     }
 
     public static void printDeleteSectionLine() {
@@ -108,5 +103,20 @@ public class OutputView {
     public static void printDeleteSectionSuccess() {
         System.out.println("");
         System.out.println(new StringJoiner("", MainForm.INFO_FORM.getMessage(), SectionForm.STATION_DELETE_SUCCESS.getMessage()));
+    }
+
+    public static void printInform(String state) {
+        if (state.equals(MainForm.CHOOSE_MAIN.getMessage())) {
+            System.out.println(MainForm.MAIN_MASSAGE.getMessage());
+        }
+        if (state.equals(MainForm.CHOOSE_STATION.getMessage())) {
+            System.out.println(StationForm.MAIN_STATION_MESSAGE.getMessage());
+        }
+        if (state.equals(MainForm.CHOOSE_LINE.getMessage())) {
+            System.out.println(LineForm.MAIN_LINE_MESSAGE.getMessage());
+        }
+        if (state.equals(MainForm.CHOOSE_SECTION.getMessage())) {
+            System.out.println(SectionForm.MAIN_SECTION_MESSAGE.getMessage());
+        }
     }
 }
