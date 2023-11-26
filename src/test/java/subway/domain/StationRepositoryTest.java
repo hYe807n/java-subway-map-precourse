@@ -21,4 +21,13 @@ class StationRepositoryTest {
         Assertions.assertThrows(IllegalArgumentException.class, () ->
             StationRepository.deleteStation("잠실역"));
     }
+
+    @DisplayName("역 삭제 기능")
+    @Test
+    void deleteStation() {
+        Station station = new Station("잠실역");
+        StationRepository.addStation(station);
+        StationRepository.deleteStation("잠실역");
+        Assertions.assertFalse(StationRepository.stations().contains(station));
+    }
 }
