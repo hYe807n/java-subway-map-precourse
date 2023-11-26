@@ -5,14 +5,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class InitializerTest {
 
+    public static void initializeTest() {
+        while (LineRepository.lines().size() != 0) {
+            LineRepository.deleteLineByName(LineRepository.lines().stream().findFirst().get().getName());
+        }
+        while (StationRepository.stations().size() != 0) {
+            StationRepository.deleteStation(StationRepository.stations().stream().findFirst().get().getName());
+        }
+    }
+
+    @BeforeEach
+    void initialize() {
+        initializeTest();
+    }
+
     @DisplayName("역 정보가 주어진 요구사항대로 초기화")
     @Test
-    void initializeStations() {
+    void initializeStationsInform() {
         Initializer.informs();
         List<String> stations = StationRepository.stations().stream().map(Station::getName).collect(Collectors.toList());
         assertThat(stations).containsAll(Arrays.asList(

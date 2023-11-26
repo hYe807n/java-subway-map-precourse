@@ -1,12 +1,20 @@
 package subway.domain;
 
+import static subway.domain.InitializerTest.initializeTest;
+
 import java.util.Collections;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class LineRepositoryTest {
+
+    @BeforeEach
+    void initialize() {
+        initializeTest();
+    }
 
     @DisplayName("\"2호선\"을 노선에 추가")
     @Test

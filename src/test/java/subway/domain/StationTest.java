@@ -1,12 +1,19 @@
 package subway.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static subway.domain.InitializerTest.initializeTest;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class StationTest {
+
+    @BeforeEach
+    void initialize() {
+        initializeTest();
+    }
 
     @DisplayName("역 이름 중복 시 예외 처리")
     @Test

@@ -1,10 +1,18 @@
 package subway.domain;
 
+import static subway.domain.InitializerTest.initializeTest;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class StationRepositoryTest {
+
+    @BeforeEach
+    void initialize() {
+        initializeTest();
+    }
 
     @DisplayName("역 추가 기능")
     @Test

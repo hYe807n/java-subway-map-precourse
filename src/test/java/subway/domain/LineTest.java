@@ -1,13 +1,20 @@
 package subway.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static subway.domain.InitializerTest.initializeTest;
 
 import java.util.Arrays;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class LineTest {
+
+    @BeforeEach
+    void initialize() {
+        initializeTest();
+    }
 
     @DisplayName("2호선에 잠실역 추가")
     @Test
