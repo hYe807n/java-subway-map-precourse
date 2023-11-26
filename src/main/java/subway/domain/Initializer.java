@@ -14,8 +14,8 @@ public class Initializer {
         StationRepository.addStation(new Station("역삼역"));
         StationRepository.addStation(new Station("남부터미널역"));
         StationRepository.addStation(new Station("양재역"));
-        StationRepository.addStation(new Station("매봉역"));
         StationRepository.addStation(new Station("양재시민의숲역"));
+        StationRepository.addStation(new Station("매봉역"));
     }
 
     private static void line() {
