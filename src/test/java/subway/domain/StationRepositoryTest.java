@@ -13,4 +13,12 @@ class StationRepositoryTest {
         StationRepository.addStation(station);
         Assertions.assertTrue(StationRepository.stations().contains(station));
     }
+
+    @DisplayName("노선에 등록된 역 삭제 시 예외 처리")
+    @Test
+    void deleteStationByContainsLine() {
+        LineRepository.addSections("1호선", "1", "잠실역");
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+            StationRepository.deleteStation("잠실역"));
+    }
 }
