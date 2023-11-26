@@ -25,7 +25,7 @@ public class Station {
 
     private void validate(String name) {
         if (StationRepository.searchStation(name) != null) {
-            throw new IllegalArgumentException("지하철 역 이름이 중복되었습니다.");
+            throw new IllegalArgumentException("이미 등록된 역 이름입니다.");
         }
         if (name.length() < MINIMUM_LENGTH) {
             throw new IllegalArgumentException("지하철 역 이름은 2 글자 이상이어야 합니다.");
