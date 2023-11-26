@@ -38,4 +38,12 @@ class StationRepositoryTest {
         StationRepository.addStation(station);
         Assertions.assertEquals(StationRepository.searchStation("잠실역"), station);
     }
+
+    @DisplayName("\"잠실역\" 역 검색하여 없다면 null 반환하는 기능")
+    @Test
+    void searchStationByNameNull() {
+        Station station = new Station("잠실역");
+        StationRepository.addStation(station);
+        Assertions.assertNull(StationRepository.searchStation("교대역"));
+    }
 }
