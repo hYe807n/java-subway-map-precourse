@@ -25,6 +25,13 @@ class LineTest {
             LineRepository.addLine(new Line("2호선")));
     }
 
+    @DisplayName("노선 이름 2글자 이상이 아니라면 예외 처리")
+    @Test
+    void addLineByMinimumName() {
+        org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () ->
+            LineRepository.addLine(new Line("2")));
+    }
+
     @DisplayName("노선에 포함된 역이 2 개 이하일 때, 구간 삭제 시 예외 처리")
     @Test
     void exceptDeleteSectionBySize() {
