@@ -16,8 +16,8 @@ public class LineRepository {
         lines.add(line);
     }
 
-    public static boolean deleteLineByName(String name) {
-        return lines.removeIf(line -> Objects.equals(line.getName(), name));
+    public static void deleteLineByName(String name) {
+        lines.removeIf(line -> Objects.equals(line.getName(), name));
     }
 
     public static Line searchLine(String lineName) {
