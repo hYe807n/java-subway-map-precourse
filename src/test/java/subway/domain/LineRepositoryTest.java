@@ -29,4 +29,11 @@ class LineRepositoryTest {
         LineRepository.deleteLineByName("2호선");
         Assertions.assertNull(LineRepository.searchLine("2호선"));
     }
+
+    @DisplayName("노선 이름을 통해 \"2호선\" 노선 검색하는 기능")
+    @Test
+    void searchLineByName() {
+        LineRepository.addLine(new Line("2호선"));
+        Assertions.assertEquals(LineRepository.searchLine("2호선").getName(), "2호선");
+    }
 }
