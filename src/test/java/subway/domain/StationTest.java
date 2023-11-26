@@ -29,4 +29,11 @@ class StationTest {
         LineRepository.addSections("2호선", "1", "신림역");
         Assertions.assertTrue(StationRepository.searchStation("신림역").isLine());
     }
+
+    @DisplayName("역이 노선에 포함되어 있지 않다면 false 반환")
+    @Test
+    void stationNotContainsLine() {
+        StationRepository.addStation(new Station("신림역"));
+        Assertions.assertFalse(StationRepository.searchStation("신림역").isLine());
+    }
 }
