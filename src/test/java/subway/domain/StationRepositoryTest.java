@@ -30,4 +30,12 @@ class StationRepositoryTest {
         StationRepository.deleteStation("잠실역");
         Assertions.assertFalse(StationRepository.stations().contains(station));
     }
+
+    @DisplayName("\"잠실역\" 역 검색하여 개체 반환하는 기능")
+    @Test
+    void searchStationByName() {
+        Station station = new Station("잠실역");
+        StationRepository.addStation(station);
+        Assertions.assertEquals(StationRepository.searchStation("잠실역"), station);
+    }
 }
