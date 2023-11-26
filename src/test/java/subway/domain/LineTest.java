@@ -17,6 +17,14 @@ class LineTest {
         assertThat(line.getStations().stream().findFirst().map(Station::getName)).contains("잠실역");
     }
 
+    @DisplayName("노선 이름 중복 시 예외 처리")
+    @Test
+    void addLineByDuplicateName() {
+        LineRepository.addLine(new Line("2호선"));
+        org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () ->
+            LineRepository.addLine(new Line("2호선")));
+    }
+
     @DisplayName("노선에 포함된 역이 2 개 이하일 때, 구간 삭제 시 예외 처리")
     @Test
     void exceptDeleteSectionBySize() {
