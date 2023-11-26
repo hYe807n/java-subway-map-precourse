@@ -13,6 +13,9 @@ public class LineRepository {
     }
 
     public static void addLine(Line line) {
+        if (LineRepository.searchLine(line.getName()) != null) {
+            throw new IllegalArgumentException("이미 등록된 노선 이름입니다.");
+        }
         lines.add(line);
     }
 
