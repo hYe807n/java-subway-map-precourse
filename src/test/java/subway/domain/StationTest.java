@@ -2,6 +2,7 @@ package subway.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -20,5 +21,12 @@ class StationTest {
     void addLineByMinimumName() {
         assertThrows(IllegalArgumentException.class, () ->
             StationRepository.addStation(new Station("2")));
+    }
+
+    @DisplayName("역이 노선에 포함되어 있다면 true 반환")
+    @Test
+    void stationContainsLine() {
+        LineRepository.addSections("2호선", "1", "신림역");
+        Assertions.assertTrue(StationRepository.searchStation("신림역").isLine());
     }
 }
