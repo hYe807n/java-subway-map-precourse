@@ -21,4 +21,12 @@ class LineRepositoryTest {
         Assertions.assertThrows(IllegalArgumentException.class, () ->
             LineRepository.addLine(new Line("2호선")));
     }
+
+    @DisplayName("\"2호선\" 노선 삭제")
+    @Test
+    void deleteLineByName() {
+        LineRepository.addLine(new Line("2호선"));
+        LineRepository.deleteLineByName("2호선");
+        Assertions.assertNull(LineRepository.searchLine("2호선"));
+    }
 }
